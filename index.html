@@ -182,7 +182,7 @@
         let availablePhrases = phrases.filter(p => !shownPhrases.includes(p));
 
         function updateCounter() {
-            counter.textContent = 'Frases restantes: ${availablePhrases.length}';
+            counter.textContent = `Frases restantes: ${availablePhrases.length}`;
         }
 
         function showRandomPhrase() {
