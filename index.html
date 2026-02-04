@@ -105,16 +105,11 @@
             box-shadow: 0 0 30px rgba(255,255,255,0.8);
         }
 
-        /* Estrellas */
         .star {
             position: absolute;
             background: white;
             border-radius: 50%;
             animation: float 3s infinite ease-in-out;
-        }
-
-        .star:nth-child(odd) {
-            animation-delay: -1s;
         }
 
         @keyframes float {
@@ -126,7 +121,6 @@
 
 <body>
 
-    <!-- Estrellas -->
     <div class="star" style="width:5px;height:5px;top:10%;left:20%"></div>
     <div class="star" style="width:3px;height:3px;top:30%;left:70%"></div>
     <div class="star" style="width:4px;height:4px;top:50%;left:40%"></div>
@@ -174,7 +168,7 @@
             "Espero siempre poder hacerte feliz",
             "Siempre todo es mejor contigo.",
             "Muack Muack",
-            "Ojalà estar juntitas",
+            "Ojalá estar juntitas",
             "Siempre"
         ];
 
@@ -187,11 +181,15 @@
         let shownPhrases = JSON.parse(localStorage.getItem('shownPhrases')) || [];
         let availablePhrases = phrases.filter(p => !shownPhrases.includes(p));
 
+        function updateCounter() {
+            counter.textContent = 'Frases restantes: ${availablePhrases.length}';
+        }
+
         function showRandomPhrase() {
             if (availablePhrases.length === 0) {
                 button.textContent = "Autodestrucción";
                 button.onclick = endGame;
-                messageDiv.textContent = "Ya no quedan más frases, pero Te amo por siempre";
+                messageDiv.textContent = "Ya no quedan más frases, pero te amo por siempre.";
                 messageDiv.classList.add('show');
                 return;
             }
